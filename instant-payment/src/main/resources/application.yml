@@ -1,0 +1,17 @@
+server:
+  port: 8001
+
+spring:
+  rabbitmq:
+    port: ${RABBITMQ_PORT:5672}
+    host: ${RABBITMQ_HOST:localhost}
+    username: user
+    password: password
+    exchange:
+      producer: ex.instant.payment
+    router-key:
+      producer: rk.instant.payment
+      dead-letter: rk.dl.instant.payment
+    queue:
+      producer: qe.instant.payment
+      dead-letter: qe.dl.instant.payment

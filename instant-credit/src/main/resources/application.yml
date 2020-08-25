@@ -1,0 +1,12 @@
+server:
+  port: 8002
+
+spring:
+  rabbitmq:
+    port: ${RABBITMQ_PORT:5672}
+    host: ${RABBITMQ_HOST:localhost}
+    username: user
+    password: password
+    queue:
+      producer: qe.instant.payment
+

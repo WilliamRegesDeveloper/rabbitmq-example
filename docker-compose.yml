@@ -1,0 +1,48 @@
+version: '3'
+services:
+  some-rabbit:
+    image: rabbitmq:3-management
+    container_name: some-rabbit
+    hostname: some-rabbit
+    network_mode: "bridge"
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+
+  instant-payment:
+    image: williamreges/instant-payment:0.0.1
+    container_name: instant-payment
+    hostname: instnat-payment
+    network_mode: "bridge"
+    environment:
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_HOST=some-rabbit
+    ports:
+      - "8001:8080"
+    depends_on:
+      - some-rabbit
+    links:
+      - some-rabbit:some-rabbit
+
+
+  instant-credit:
+    image: williamreges/instant-credit:0.0.1
+    container_name: instant-credit
+    hostname: instant-credit
+    network_mode: "bridge"
+    environment:
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_HOST=some-rabbit
+    ports:
+      - "8002:8080"
+    depends_on:
+      - some-rabbit
+    links:
+      - some-rabbit:some-rabbit
+
+
+
