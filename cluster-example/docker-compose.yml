@@ -14,10 +14,10 @@ services:
       - "5672:5672"
 
 
-  instant-payment:
-    image: instant-payment:0.0.1
-    container_name: instant-payment
-    hostname: instnat-payment
+  producer-payment:
+    image: producer-payment:0.0.1
+    container_name: producer-payment
+    hostname: producer-payment
     network_mode: "bridge"
     restart: always
     environment:
@@ -31,10 +31,10 @@ services:
       - some-rabbit:some-rabbit
 
 
-  instant-credit:
-    image: instant-credit:0.0.1
-    container_name: instant-credit
-    hostname: instant-credit
+  consumer-payment:
+    image: consumer-payment:0.0.1
+    container_name: consumer-payment
+    hostname: consumer-payment
     network_mode: "bridge"
     restart: always
     environment:

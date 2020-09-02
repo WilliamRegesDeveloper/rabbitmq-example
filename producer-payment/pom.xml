@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.message.instant.payment</groupId>
-	<artifactId>instant-payment</artifactId>
+	<artifactId>producer-payment</artifactId>
 	<version>0.0.1</version>
-	<name>instant payment</name>
+	<name>producer payment</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -75,7 +75,7 @@
 				</executions>
 				<configuration>
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-					<repository>instant-payment</repository>
+					<repository>producer-payment</repository>
 					<!--<dockerfile>Dockerfile</dockerfile>-->
 					<tag>${project.version}</tag>
 					<buildArgs>

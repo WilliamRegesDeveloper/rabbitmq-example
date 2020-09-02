@@ -8,10 +8,10 @@
         <version>2.3.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.message.instant.credit</groupId>
-    <artifactId>instant-credit</artifactId>
+    <groupId>com.message.consumer.payment</groupId>
+    <artifactId>consumer-payment</artifactId>
     <version>0.0.1</version>
-    <name>instant credit</name>
+    <name>consumer payment</name>
     <description>Demo project for Spring Boot Instant Credit</description>
 
     <properties>
@@ -81,7 +81,7 @@
                 </executions>
                 <configuration>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <repository>instant-credit</repository>
+                    <repository>consumer-payment</repository>
                     <!--<dockerfile>Dockerfile</dockerfile>-->
                     <tag>${project.version}</tag>
                     <buildArgs>
