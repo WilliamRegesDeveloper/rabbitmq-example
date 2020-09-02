@@ -5,6 +5,7 @@ services:
     container_name: some-rabbit
     hostname: some-rabbit
     network_mode: "bridge"
+    restart: always
     environment:
       - RABBITMQ_DEFAULT_USER=user
       - RABBITMQ_DEFAULT_PASS=password
@@ -14,10 +15,11 @@ services:
 
 
   instant-payment:
-    image: williamreges/instant-payment:0.0.1
+    image: instant-payment:0.0.1
     container_name: instant-payment
     hostname: instnat-payment
     network_mode: "bridge"
+    restart: always
     environment:
       - RABBITMQ_PORT=5672
       - RABBITMQ_HOST=some-rabbit
@@ -30,10 +32,11 @@ services:
 
 
   instant-credit:
-    image: williamreges/instant-credit:0.0.1
+    image: instant-credit:0.0.1
     container_name: instant-credit
     hostname: instant-credit
     network_mode: "bridge"
+    restart: always
     environment:
       - RABBITMQ_PORT=5672
       - RABBITMQ_HOST=some-rabbit

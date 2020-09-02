@@ -75,8 +75,8 @@
 				</executions>
 				<configuration>
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-					<repository>williamreges/instant-payment</repository>
-					<dockerfile>Dockerfile</dockerfile>
+					<repository>instant-payment</repository>
+					<!--<dockerfile>Dockerfile</dockerfile>-->
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
