@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="518cb139-740f-41e8-b9ab-fd4ee5d9dd24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/rabbitmq-example.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/flow-rabbitmq" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/flow-rabbitmq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/login-browser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/metricas-rabbit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postman_collection-producer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rabbitmq-server.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rabbitmq-run.sh" afterDir="false" />
-    </list>
+    <list default="true" id="518cb139-740f-41e8-b9ab-fd4ee5d9dd24" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,11 +61,6 @@
             <path>
               <item name="rabbitmq-example" type="b2602c69:ProjectViewProjectNode" />
               <item name="rabbitmq-example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rabbitmq-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rabbitmq-example" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
