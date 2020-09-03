@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "ad219e3d-f96b-4e2d-8958-cd23274b3ce4",
+		"name": "Instant Payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "send payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"William Reges\",\n    \"cpf\": \"34554321070\",\n    \"value\": 0.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/v1/payment/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"v1",
+						"payment",
+						"send"
+					]
+				},
+				"description": "Test send instant payment on service message"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
