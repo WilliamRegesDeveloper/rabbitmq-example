@@ -12,11 +12,11 @@ no script abaixo.
 $ ./ rabbitmq-run.sh
 ```
 O que esse script faz: 
- - pull do rabbitmq:3-management no dockerhub;
+ - faz pull da imagem do rabbitmq no dockerhub;
  - abre as portas 15672 e 5672(15672 para acesso do browser e 5672 para comunicação de api e servidor amqp);
  - define usuario e senha de acesso ao serviço (Login:user/senha:password);
 
-##### Acesso via browser
+##### Interface de Gerenciamento do RabbitMQ
  Acessando o browser na porta localhost:15672 e digitar login e senha:
  
  ![login-browser](images/login-browser.png)
@@ -26,14 +26,59 @@ O que esse script faz:
  
 ![metricas-rabbit](images/metricas-rabbit.png)
  
-## Como funciona
-O envio e consumo de mensagens no rabbitmq consiste em um producer e um consumer. Basicamente funciona da seguinte forma:
- - Mensagem: algum dado podendo ser json, xml e até stream;
- - Producer: alguma aplicação envia a mensagem para o serviço;
- - Exchange: recebe a mensagem e encaminha para uma queue baseando-se nas regras defindas pelo tipo de exchange;
- - Queue: armazena mensagens vindas das exchanges até que seja consumida;
- - Consumer: Aplicação fica escutando nas queue buscando mensagens e processando-as;
+## Conceitos AMQP
+O envio e consumo de mensagens no rabbitmq consiste em um producer e um consumer. Basicamente funciona da seguinte
+ forma:
 
+
+ - **Message**: algum dado podendo ser json, xml e até stream;
+ - **Producer**: alguma aplicação envia a mensagem para o serviço;
+ - **Exchange**: recebe a mensagem e encaminha para uma queue através de rotas baseando-se nas regras defindas pelo tipo
+  de exchange;
+ - **Queue**: armazena mensagens vindas das exchanges até que seja consumida;
+ - **Consumer**: Aplicação fica escutando nas queue buscando mensagens e processando-as;
+ 
 ![flow-basic](images/flow-rabbitmq.png)
 
+ - **Connection TCP**: comunicaçao entre aplicação e RabbitMQ;
+ - **Channel**: comunicação virtual sob TCP Connection. Todo producer e consumer é feito por channel;
+ - **Binding**: link entre um exchange e queues. Ele determina para quais queues uma mensagem pode ser roteado podendo 
+ ser zero queue ou muitos qeues; 
+ - **Router Key**: faz parte do cabeçalho de cada mensagem e garante que a mensagem será enviada para a fila correta 
+ como se fosse um endereço de entrega;
 
+![flow-rabbitmq-compl](images/flow-rabbitmq-compl.png)
+
+## Exchange
+
+As mensagens encaminhados pelo produtor não vai direto para uma fila, tem que passar primeiro por um exchange.
+As exchange são agentes de mensagem definidos por um host virtual no RabbitMQ. Exchange roteia as mensagens para zero ou
+muitas filas com a ajuda de configuraçoes como header attributes, bindings e routing keys. 
+
+As exchanges, connectins e queues podem ser confiugrados como durável, temporário e exclusão automática na criação:
+
+ - **Durable**: uma exchange durável pode sobreviver a uma reincialização de servidor e podem durar até serem excluídos 
+de forma explícita;
+ - **Temporary**: uma exchange temporária pode durar até que o servidor seja reiniciado;
+ - **Auto Delete**: uma exchange apaga automaticamente quando o último objeto vinculado a ele é desvinculado. 
+
+##### Exchange Types
+ - **Direct**: Uma exchange envia uma mensagem do producer a uma queue baseado no router key encontrado no header
+ da mensagem.
+ 
+![exchange-direct](images/exchange-direct.gif)
+  
+ - **Fanout**: Uma exchange envia uma mensagem do producer a vários queues vinculados a essa exchange. Ele 
+
+![exchange-direct](images/exchange-fanout.gif) 
+ 
+ - **Topic**:
+ 
+ - **Header**:
+ - **Dead Letter**:
+
+
+## Referências
+ - https://www.cloudamqp.com/blog/2015-09-03-part4-rabbitmq-for-beginners-exchanges-routing-keys-bindings.html
+ - https://www.cloudamqp.com/docs/index.html
+ - http://tryrabbitmq.com/

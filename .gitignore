@@ -6,4 +6,7 @@
 
 # User-specific stuff
 .idea
+*.iws
+*.iml
+*.ipr
 
