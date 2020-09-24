@@ -68,14 +68,20 @@ de forma explícita;
  
 ![exchange-direct](images/exchange-direct.gif)
   
- - **Fanout**: Uma exchange envia uma mensagem do producer a vários queues vinculados a essa exchange. Ele 
+ - **Fanout**: Uma exchange envia uma mensagem do producer a vários queues vinculados a essa exchange. Um exchange 
+ fanout não utiliza router keys para rotear mensagem as filas pois apenas considera o binding entre a exchange e as varias
+ filas vinculadas.
 
 ![exchange-direct](images/exchange-fanout.gif) 
  
  - **Topic**:
  
  - **Header**:
- - **Dead Letter**:
+ 
+ - **Dead Letter**: Existe situaçoes em que uma exchange não consegue entregar mensagem para uma fila. Nesse caso a 
+ mensagem podeŕa ser descartada silenciosamente. O RabbitMQ fornece uma extensão AMQP conhecida como "Dead Letter Exchange",
+ onde fornece a funcionalidade de captura de mensagens não entregues possibilitando com que essa mensagem seja tratada ou 
+ por um adminstrador ou por algum outro processos automatizado de correção.
 
 
 ## Referências
