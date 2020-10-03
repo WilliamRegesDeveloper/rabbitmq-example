@@ -63,28 +63,54 @@ de forma explícita;
  - **Auto Delete**: uma exchange apaga automaticamente quando o último objeto vinculado a ele é desvinculado. 
 
 ##### Exchange Types
- - **Direct**: Uma exchange envia uma mensagem do producer a uma queue baseado no router key encontrado no header
- da mensagem.
- 
-![exchange-direct](images/exchange-direct.gif)
-  
- - **Fanout**: Uma exchange envia uma mensagem do producer a vários queues vinculados a essa exchange. Um exchange 
+
+ - **[Fanout](https://www.rabbitmq.com/tutorials/tutorial-three-spring-amqp.html)**:
+ Uma exchange envia uma mensagem do producer a vários queues vinculados a essa exchange. Um exchange 
  fanout não utiliza router keys para rotear mensagem as filas pois apenas considera o binding entre a exchange e as varias
  filas vinculadas.
 
 ![exchange-direct](images/exchange-fanout.gif) 
+
+ - **[Direct](https://www.rabbitmq.com/tutorials/tutorial-four-spring-amqp.html)**:
+ Uma exchange envia uma mensagem do producer a uma queue baseado no router key encontrado no header
+ da mensagem.
  
- - **Topic**:
+![exchange-direct](images/exchange-direct.gif)
  
- - **Header**:
  
- - **Dead Letter**: Existe situaçoes em que uma exchange não consegue entregar mensagem para uma fila. Nesse caso a 
+ - **[Topic](https://www.rabbitmq.com/tutorials/tutorial-five-spring-amqp.html)**: 
+ Uma exchange topic diferente do tipo direct não utiliza router-key de forma arbitrária. Deve ser utilizado 
+ uma lista de palavras delimitados por pontos que criará chaves de roteamento. Normalmente pode ser qualquer palavra, 
+ porém por padrão deve-se adotar palavras dentro de um contexto de quem as consome. Essa chaves de roteatmento são parecidos
+ com exchange direct, porém as direct são limitadas. Com o exchange topic é possível fazer roteamento com base em critérios.
+ O exemplo a seguir mostra o envio de mensagem no tópico `message.gmail` com o critério de envio de email ao gmail. Porém
+ existe a chave `message.*` com critério de obter todas as mensagens enviados para qualquer consumer sendo gmail ou outlook. 
+  
+ 
+ ![exchange-direct](images/exchange-topic.gif) 
+ 
+ 
+ - **[Dead Letter](https://www.rabbitmq.com/dlx.html)**: 
+ Existe situaçoes em que uma exchange não consegue entregar mensagem para uma fila. Nesse caso a 
  mensagem podeŕa ser descartada silenciosamente. O RabbitMQ fornece uma extensão AMQP conhecida como "Dead Letter Exchange",
  onde fornece a funcionalidade de captura de mensagens não entregues possibilitando com que essa mensagem seja tratada ou 
  por um adminstrador ou por algum outro processos automatizado de correção.
 
 
+ #### Queue
+ São responsáveis por armazenar as mensagens vindas do producer. Os consumidores se conectam a elas para 
+ obter mensagens. 
+ 
+ - **Durable**: fila sobreviverá a uma reinicialização do servidor;
+ - **Exclusive**: usado apenas por uma conexão e a fila será excluída quando a conexão for fechada;
+ - **Auto-delete**: a fila que teve pelo menos um consumidor é excluída quando o último consumidor é desconectado;
+ - **Arguments**: opcional; usado por plug-ins e recursos específicos do servidor, como TTL de mensagem, 
+ limite de comprimento da fila, etc;
+                               
 ## Referências
- - https://www.cloudamqp.com/blog/2015-09-03-part4-rabbitmq-for-beginners-exchanges-routing-keys-bindings.html
+ - https://www.rabbitmq.com/tutorials/amqp-concepts.html
+ - https://www.rabbitmq.com/getstarted.html
+ - https://www.rabbitmq.com/queues.html
  - https://www.cloudamqp.com/docs/index.html
+ - https://www.cloudamqp.com/blog/2015-09-03-part4-rabbitmq-for-beginners-exchanges-routing-keys-bindings.html
  - http://tryrabbitmq.com/
