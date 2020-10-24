@@ -1,7 +1,7 @@
 package com.message.instant.payment.controller;
 
 import com.message.instant.payment.dto.Payment;
-import com.message.instant.payment.service.MessageService;
+import com.message.instant.payment.service.sender.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,8 @@
-package com.message.instant.payment.service.impl;
+package com.message.instant.payment.service.sender.impl;
 
 import com.message.instant.payment.amqp.MessageProducer;
 import com.message.instant.payment.dto.Payment;
-import com.message.instant.payment.service.MessageService;
+import com.message.instant.payment.service.sender.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

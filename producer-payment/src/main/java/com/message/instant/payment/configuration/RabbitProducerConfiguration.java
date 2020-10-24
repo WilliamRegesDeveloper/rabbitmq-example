@@ -30,19 +30,20 @@ public class RabbitProducerConfiguration {
     }
 
     @Bean
-    public Queue queueDeadLetter(){
-        return QueueBuilder.durable(queueDeadLetter)
-                .deadLetterExchange(exchange)
-                .deadLetterRoutingKey(routerProducer)
-                .build();
-    }
-
-    @Bean
     public Queue queue() {
         return QueueBuilder
                 .durable(queue)
                 .deadLetterExchange(exchange)
                 .deadLetterRoutingKey(routerDeadLetter)
+                .build();
+    }
+
+    @Bean
+    public Queue queueDeadLetter(){
+        return QueueBuilder
+                .durable(queueDeadLetter)
+                .deadLetterExchange(exchange)
+                .deadLetterRoutingKey(routerProducer)
                 .build();
     }
 

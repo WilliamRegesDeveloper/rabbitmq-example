@@ -1,4 +1,4 @@
-package com.message.instant.payment.service;
+package com.message.instant.payment.service.sender;
 
 import com.message.instant.payment.dto.Payment;
 

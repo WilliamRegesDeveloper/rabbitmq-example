@@ -16,6 +16,13 @@ O que esse script faz:
  - abre as portas 15672 e 5672(15672 para acesso do browser e 5672 para comunicação de api e servidor amqp);
  - define usuario e senha de acesso ao serviço (Login:user/senha:password);
 
+Temos um exemplo em docker-compose onde já sobe um ambiente de exemplo mostrando o comportamento de fluxo de mensagens
+entre producer, mensageria e consumer.
+
+```
+$ ./ cluster-example/cluster-run.sh
+```   
+
 ##### Interface de Gerenciamento do RabbitMQ
  Acessando o browser na porta localhost:15672 e digitar login e senha:
  
@@ -25,6 +32,7 @@ O que esse script faz:
  e entre outros:
  
 ![metricas-rabbit](images/metricas-rabbit.png)
+
  
 ## Conceitos AMQP
 O envio e consumo de mensagens no rabbitmq consiste em um producer e um consumer. Basicamente funciona da seguinte
@@ -86,6 +94,9 @@ de forma explícita;
  O exemplo a seguir mostra o envio de mensagem no tópico `message.gmail` com o critério de envio de email ao gmail. Porém
  existe a chave `message.*` com critério de obter todas as mensagens enviados para qualquer consumer sendo gmail ou outlook. 
   
+   (*) pode substituir exatamente uma palavra.
+   
+   (#) pode substituir zero ou mais palavras.
  
  ![exchange-direct](images/exchange-topic.gif) 
  
@@ -106,6 +117,7 @@ de forma explícita;
  - **Auto-delete**: a fila que teve pelo menos um consumidor é excluída quando o último consumidor é desconectado;
  - **Arguments**: opcional; usado por plug-ins e recursos específicos do servidor, como TTL de mensagem, 
  limite de comprimento da fila, etc;
+ 
                                
 ## Referências
  - https://www.rabbitmq.com/tutorials/amqp-concepts.html

@@ -15,6 +15,7 @@ services:
 
 
   producer-payment:
+    build: ../producer-payment/
     image: producer-payment:0.0.1
     container_name: producer-payment
     hostname: producer-payment
@@ -32,6 +33,7 @@ services:
 
 
   consumer-payment:
+    build: ../consumer-payment/
     image: consumer-payment:0.0.1
     container_name: consumer-payment
     hostname: consumer-payment
