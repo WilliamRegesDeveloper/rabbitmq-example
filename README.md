@@ -16,8 +16,9 @@ O que esse script faz:
  - abre as portas 15672 e 5672(15672 para acesso do browser e 5672 para comunicação de api e servidor amqp);
  - define usuario e senha de acesso ao serviço (Login:user/senha:password);
 
-Temos um exemplo em docker-compose onde já sobe um ambiente de exemplo mostrando o comportamento de fluxo de mensagens
-entre producer, mensageria e consumer.
+Temos um exemplo em docker-compose onde já sobe um ambiente já construindo dois containers do app e um container com RabbiqMQ.
+O exemplo mostra um payload de pagamento gerado no producer por scheduler, enviando esse payload a uma fila no RabbitMQ e o consumo desse payload no consumer
+que fica escutando toda vez que uma nova mensagem chega a fila do RabbitMQ.
 
 ```
 $ ./ cluster-example/cluster-run.sh
