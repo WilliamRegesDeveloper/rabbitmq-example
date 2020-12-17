@@ -9,15 +9,15 @@ RabbitMQ é amplamente utilizado ao ser trabalhar com mensagens em protocolos AM
 Antes de subir os app de producer e consumer em alguma IDE de sua escolha rode o serviço de RabbitMQ com docker 
 no script abaixo.
 ```
-$ ./ rabbitmq-run.sh
+$ ./ docker-compose up -d
 ```
 O que esse script faz: 
  - faz pull da imagem do rabbitmq no dockerhub;
  - abre as portas 15672 e 5672(15672 para acesso do browser e 5672 para comunicação de api e servidor amqp);
  - define usuario e senha de acesso ao serviço (Login:user/senha:password);
 
-Temos um exemplo em docker-compose onde já sobe um ambiente de exemplo mostrando o comportamento de fluxo de mensagens
-entre producer, mensageria e consumer.
+Esse repositório também contém um exemplo em docker-compose subindo uma stack de containers contendo producer, rabbitmq
+e consumer. Esse exemplo visa mostrar o comportamento de fluxo de mensagens entre producer, mensageria e consumer.
 
 ```
 $ ./ cluster-example/cluster-run.sh
